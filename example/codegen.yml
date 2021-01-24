@@ -1,0 +1,7 @@
+overwrite: true
+schema: "./graphql-schema/**/*.graphqls"
+documents: "./graphql-document/**/*.graphql"
+generates:
+  ./graphql_flutter.dart:
+    plugins:
+      - "../dist/index.js"

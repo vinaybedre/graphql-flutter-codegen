@@ -1,15 +1,15 @@
 {
   "name": "@vinaybedre/graphql-flutter-codegen",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "GraphQL codegen for Flutter+Dart using graphql_flutter",
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"tsc",
     "build:check": "tsc --noEmit"
   },
   "files": [
-    "lib",
+    "dist",
     "README.md"
   ],
   "repository": {

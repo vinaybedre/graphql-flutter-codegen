@@ -9,3 +9,7 @@
     plugins:
       - "@vinaybedre/graphql-flutter-codegen"
 ```
+
+# How to use?
+1. import graphql_flutter_documents.dart file
+2. `GraphQLDocument().getMyPosts`

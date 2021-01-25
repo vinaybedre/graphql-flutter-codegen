@@ -14,16 +14,17 @@ const util_1 = require("util");
 const path_1 = require("path");
 module.exports = {
     plugin: (_, documents) => __awaiter(void 0, void 0, void 0, function* () {
-        const strs = ["//THIS IS A GENERATED FILE, DO NOT MODIFY. YOUR CHANGES WILL BE REWRITTEN ON NEW GENERATION", `//Generated at ${new Date()}`, ""];
+        const strs = ["//THIS IS A GENERATED FILE, DO NOT MODIFY. YOUR CHANGES WILL BE REWRITTEN ON NEW GENERATION", `//Generated at ${new Date()}`, "class GraphQLDocument {"];
         for (let index = 0; index < documents.length; index++) {
             const element = documents[index];
             const fileContents = yield util_1.promisify(fs_1.readFile)(element.location, { encoding: "utf-8" });
             const extension = path_1.extname(element.location);
-            const str = `String ${path_1.basename(element.location, extension)} = """
-            ${fileContents.replace(/\$/g, "\\$").trim()}
-            """;\n\n`;
+            const str = `\tfinal String ${path_1.basename(element.location, extension)} = """
+            \t${fileContents.replace(/\$/g, "\\$").trim()}
+            """;\n`;
             strs.push(str);
         }
+        strs.push("}");
         return strs.join('\n');
     }),
     validate: (_, __, ___, outputFile) => {

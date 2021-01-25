@@ -1,0 +1,14 @@
+mutation CreatePost($input: PostInput!) {
+    createPost(input: $input) {
+        id
+    }
+    createMyPost(input: $input) {
+        title
+    }
+}
+
+mutation CreateMyPost($input: PostInput!) {
+    createPost(input: $input) {
+        id
+    }
+}

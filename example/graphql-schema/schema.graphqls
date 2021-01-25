@@ -6,4 +6,15 @@ type Post {
 
 type Query {
     getPosts:[Post!]!
+    getPost(id: ID!):Post!
+}
+
+input PostInput {
+    title: String!
+    slug: String
+}
+
+type Mutation {
+    createPost(input: PostInput!):Post!
+    createMyPost(input: PostInput!):Post!
 }

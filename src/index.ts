@@ -20,7 +20,6 @@ module.exports = {
     plugin: async (_, documents: Documents[]) => {
         const queryOptions = await promisify(readFile)(__dirname + '/templates/queryOption.mustache', { encoding: "utf-8" })
         const mutationOptions = await promisify(readFile)(__dirname + '/templates/mutationOptions.mustache', { encoding: "utf-8" })
-        await promisify(writeFile)("./output.json",JSON.stringify(documents))
         const fileSegments = ["//THIS IS A GENERATED FILE, DO NOT MODIFY. YOUR CHANGES WILL BE REWRITTEN ON NEW GENERATION", `//Generated at ${new Date()}`,`import 'package:graphql_flutter/graphql_flutter.dart';`]
         for (let index = 0; index < documents.length; index++) {
             const element = documents[index];

@@ -22,7 +22,6 @@ module.exports = {
     plugin: (_, documents) => __awaiter(void 0, void 0, void 0, function* () {
         const queryOptions = yield util_1.promisify(fs_1.readFile)(__dirname + '/templates/queryOption.mustache', { encoding: "utf-8" });
         const mutationOptions = yield util_1.promisify(fs_1.readFile)(__dirname + '/templates/mutationOptions.mustache', { encoding: "utf-8" });
-        yield util_1.promisify(fs_1.writeFile)("./output.json", JSON.stringify(documents));
         const fileSegments = ["//THIS IS A GENERATED FILE, DO NOT MODIFY. YOUR CHANGES WILL BE REWRITTEN ON NEW GENERATION", `//Generated at ${new Date()}`, `import 'package:graphql_flutter/graphql_flutter.dart';`];
         for (let index = 0; index < documents.length; index++) {
             const element = documents[index];
